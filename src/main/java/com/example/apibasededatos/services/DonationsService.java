@@ -1,65 +1,67 @@
 package com.example.apibasededatos.services;
 
+import com.example.apibasededatos.dto.CreateDonationRequest;
 import com.example.apibasededatos.models.donations;
+import com.example.apibasededatos.structures.LinkedStack;
+import com.example.apibasededatos.structures.SinglyLinkedList;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class DonationsService {
 
-    private final List<donations> listaDonations = new ArrayList<>();
+    private final SinglyLinkedList<donations> listaDonations = new SinglyLinkedList<>();
+    private final LinkedStack<donations> pilaEliminadas = new LinkedStack<>();
     private int contadorId = 1;
 
+    public DonationsService() {
+        crear(new CreateDonationRequest("09/11/2026", 20.0, "En almacén", "Manzana de Frutería La Huerta"));
+        crear(new CreateDonationRequest("08/11/2026", 12.0, "Por vencer", "Pan de caja de Panadería San José"));
+        crear(new CreateDonationRequest("08/11/2026", 40.0, "Entregado", "Frijol negro de Súper Ahorro"));
+    }
 
     public List<donations> obtenerTodos() {
-        return listaDonations;
+        return listaDonations.toList();
     }
-
 
     public donations obtenerPorId(int id) {
-        for (donations d : listaDonations) {
-            if (d.id() == id) {
-                return d;
-            }
-        }
-        return null;
+        return listaDonations.find(d -> d.id() == id);
     }
 
-
-    public donations crear(donations nuevaDonacion) {
-        donations donacionConId = new donations(
-                contadorId++,
-                nuevaDonacion.donationDate(),
-                nuevaDonacion.totalQuantity(),
-                nuevaDonacion.status(),
-                nuevaDonacion.observations()
-        );
-        listaDonations.add(donacionConId);
-        return donacionConId;
+    public donations crear(CreateDonationRequest request) {
+        donations nueva = construir(contadorId++, request);
+        listaDonations.add(nueva);
+        return nueva;
     }
 
-
-    public donations actualizar(int id, donations datos) {
-        for (int i = 0; i < listaDonations.size(); i++) {
-            if (listaDonations.get(i).id() == id) {
-                donations actualizada = new donations(
-                        id,
-                        datos.donationDate(),
-                        datos.totalQuantity(),
-                        datos.status(),
-                        datos.observations()
-                );
-                listaDonations.set(i, actualizada);
-                return actualizada;
-            }
-        }
-        return null;
+    public donations actualizar(int id, CreateDonationRequest request) {
+        donations actualizada = construir(id, request);
+        return listaDonations.replace(d -> d.id() == id, actualizada) ? actualizada : null;
     }
-
 
     public boolean eliminar(int id) {
-        return listaDonations.removeIf(d -> d.id() == id);
+        donations eliminada = listaDonations.remove(d -> d.id() == id);
+        if (eliminada == null) {
+            return false;
+        }
+        pilaEliminadas.push(eliminada);
+        return true;
+    }
+
+    public donations restaurarUltimaEliminada() {
+        donations restaurada = pilaEliminadas.pop();
+        if (restaurada != null) {
+            listaDonations.add(restaurada);
+        }
+        return restaurada;
+    }
+
+    public List<donations> obtenerEliminadas() {
+        return pilaEliminadas.toList();
+    }
+
+    private donations construir(int id, CreateDonationRequest r) {
+        return new donations(id, r.donationDate(), r.totalQuantity(), r.status(), r.observations());
     }
 }
