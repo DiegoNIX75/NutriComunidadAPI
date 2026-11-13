@@ -1,7 +1,12 @@
 package com.example.apibasededatos.models;
 
 public record organizations(
-        int id, String nameORG,String typeOfORG,String manager, int PhoneNumber,String mail,
+        int id,
+        String nameORG,
+        String typeOfORG,
+        String manager,
+        String phoneNumber,
+        String mail,
         String street,
         String exteriorNumber,
         String interiorNumber,
