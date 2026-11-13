@@ -1,81 +1,53 @@
 package com.example.apibasededatos.services;
 
+import com.example.apibasededatos.dto.CreateBusinessRequest;
 import com.example.apibasededatos.models.businesses;
+import com.example.apibasededatos.structures.SinglyLinkedList;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class BusinessesService {
 
-    private final List<businesses> listaBusinesses = new ArrayList<>();
+    private final SinglyLinkedList<businesses> listaBusinesses = new SinglyLinkedList<>();
     private int contadorId = 1;
 
+    public BusinessesService() {
+        crear(new CreateBusinessRequest("Frutería La Huerta", "La Huerta S.A. de C.V.", "Frutería", "5512340001",
+                "contacto@lahuerta.com", "Calle Morelos", "12", "", "Centro", "06000", "Cuauhtémoc", "Ciudad de México"));
+        crear(new CreateBusinessRequest("Panadería San José", "Panificadora San José S.A.", "Panadería", "5512340002",
+                "ventas@sanjose.com", "Av. Juárez", "88", "", "Juárez", "06600", "Cuauhtémoc", "Ciudad de México"));
+        crear(new CreateBusinessRequest("Súper Ahorro", "Comercializadora Ahorro S.A.", "Supermercado", "5512340003",
+                "info@superahorro.com", "Av. Tlalpan", "450", "", "Portales", "03300", "Benito Juárez", "Ciudad de México"));
+    }
 
     public List<businesses> obtenerTodos() {
-        return listaBusinesses;
+        return listaBusinesses.toList();
     }
-
 
     public businesses obtenerPorId(int id) {
-        for (businesses b : listaBusinesses) {
-            if (b.id() == id) {
-                return b;
-            }
-        }
-        return null;
+        return listaBusinesses.find(b -> b.id() == id);
     }
 
-
-    public businesses crear(businesses nuevoNegocio) {
-        businesses negocioConId = new businesses(
-                contadorId++,
-                nuevoNegocio.BusinessName(),
-                nuevoNegocio.LegalName(),
-                nuevoNegocio.typeOfBusiness(),
-                nuevoNegocio.phoneNumber(),
-                nuevoNegocio.mail(),
-                nuevoNegocio.street(),
-                nuevoNegocio.exteriorNumber(),
-                nuevoNegocio.interiorNumber(),
-                nuevoNegocio.neighborhood(),
-                nuevoNegocio.postalCode(),
-                nuevoNegocio.municipality(),
-                nuevoNegocio.state()
-        );
-        listaBusinesses.add(negocioConId);
-        return negocioConId;
+    public businesses crear(CreateBusinessRequest request) {
+        businesses nuevo = construir(contadorId++, request);
+        listaBusinesses.add(nuevo);
+        return nuevo;
     }
 
-
-    public businesses actualizar(int id, businesses datos) {
-        for (int i = 0; i < listaBusinesses.size(); i++) {
-            if (listaBusinesses.get(i).id() == id) {
-                businesses actualizado = new businesses(
-                        id,
-                        datos.BusinessName(),
-                        datos.LegalName(),
-                        datos.typeOfBusiness(),
-                        datos.phoneNumber(),
-                        datos.mail(),
-                        datos.street(),
-                        datos.exteriorNumber(),
-                        datos.interiorNumber(),
-                        datos.neighborhood(),
-                        datos.postalCode(),
-                        datos.municipality(),
-                        datos.state()
-                );
-                listaBusinesses.set(i, actualizado);
-                return actualizado;
-            }
-        }
-        return null;
+    public businesses actualizar(int id, CreateBusinessRequest request) {
+        businesses actualizado = construir(id, request);
+        return listaBusinesses.replace(b -> b.id() == id, actualizado) ? actualizado : null;
     }
-
 
     public boolean eliminar(int id) {
-        return listaBusinesses.removeIf(b -> b.id() == id);
+        return listaBusinesses.remove(b -> b.id() == id) != null;
+    }
+
+    private businesses construir(int id, CreateBusinessRequest r) {
+        return new businesses(id, r.businessName(), r.legalName(), r.typeOfBusiness(), r.phoneNumber(), r.mail(),
+                r.street(), r.exteriorNumber(), r.interiorNumber(), r.neighborhood(), r.postalCode(),
+                r.municipality(), r.state());
     }
 }
