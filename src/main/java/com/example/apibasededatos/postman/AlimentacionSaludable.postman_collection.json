@@ -1,0 +1,703 @@
+{
+  "info": {
+    "_postman_id": "3a546e02-fba6-4b92-b173-f42f6c80b944",
+    "name": "AlimentacionSaludable",
+    "description": "Colección de Postman con los endpoints de la API de NutriComunidad para probar y verificar las solicitudes y respuestas de cada recurso.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "59185368",
+    "_collection_link": "https://go.postman.co/collection/59185368-3a546e02-fba6-4b92-b173-f42f6c80b944?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Check Database",
+      "item": [
+        {
+          "name": "Checking",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/health",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "beneficiaries",
+      "item": [
+        {
+          "name": "AllBeneficiaries",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/beneficiaries",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "beneficiaries"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "IDBeneficiaries",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/beneficiaries/1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RmBeneficiaries",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/beneficiaries/4",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AddBeneficiaries",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Carlos\",\r\n  \"lastName\": \"Hernandez Lopez\",\r\n  \"phoneNumber\": \"2223456789\",\r\n  \"mail\": \"carlos.hernandez@example.com\",\r\n  \"familyMembers\": 4,\r\n  \"street\": \"Avenida Reforma\",\r\n  \"exteriorNumber\": \"125\",\r\n  \"interiorNumber\": \"2B\",\r\n  \"neighborhood\": \"Centro\",\r\n  \"postalCode\": \"72000\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/beneficiaries",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "beneficiaries"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ChangeBeneficiaries Copy",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Carlos\",\r\n  \"lastName\": \"Hernandez Lopez\",\r\n  \"phoneNumber\": \"2223456789\",\r\n  \"mail\": \"carlos.hernandez@example.com\",\r\n  \"familyMembers\": 4,\r\n  \"street\": \"Avenida Reforma\",\r\n  \"exteriorNumber\": \"125\",\r\n  \"interiorNumber\": \"2B\",\r\n  \"neighborhood\": \"Centro\",\r\n  \"postalCode\": \"72000\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Tlaxcala\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/beneficiaries/4",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "beneficiaries",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "item": [
+        {
+          "name": "AllBusinesses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Carlos\",\r\n  \"lastName\": \"Hernandez Lopez\",\r\n  \"phoneNumber\": \"2223456789\",\r\n  \"mail\": \"carlos.hernandez@example.com\",\r\n  \"familyMembers\": 4,\r\n  \"street\": \"Avenida Reforma\",\r\n  \"exteriorNumber\": \"125\",\r\n  \"interiorNumber\": \"2B\",\r\n  \"neighborhood\": \"Centro\",\r\n  \"postalCode\": \"72000\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/businesses",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "businesses"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "IDBusinesses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Carlos\",\r\n  \"lastName\": \"Hernandez Lopez\",\r\n  \"phoneNumber\": \"2223456789\",\r\n  \"mail\": \"carlos.hernandez@example.com\",\r\n  \"familyMembers\": 4,\r\n  \"street\": \"Avenida Reforma\",\r\n  \"exteriorNumber\": \"125\",\r\n  \"interiorNumber\": \"2B\",\r\n  \"neighborhood\": \"Centro\",\r\n  \"postalCode\": \"72000\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/businesses/1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "businesses",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RmBusinesses",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Carlos\",\r\n  \"lastName\": \"Hernandez Lopez\",\r\n  \"phoneNumber\": \"2223456789\",\r\n  \"mail\": \"carlos.hernandez@example.com\",\r\n  \"familyMembers\": 4,\r\n  \"street\": \"Avenida Reforma\",\r\n  \"exteriorNumber\": \"125\",\r\n  \"interiorNumber\": \"2B\",\r\n  \"neighborhood\": \"Centro\",\r\n  \"postalCode\": \"72000\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/businesses/5",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "businesses",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AddBusinesses",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"businessName\": \"Abarrotes La Esperanza\",\r\n  \"legalName\": \"Comercializadora La Esperanza S.A. de C.V.\",\r\n  \"typeOfBusiness\": \"Grocery Store\",\r\n  \"phoneNumber\": \"2224567890\",\r\n  \"mail\": \"contacto@laesperanza.example.com\",\r\n  \"street\": \"Avenida Juarez\",\r\n  \"exteriorNumber\": \"245\",\r\n  \"interiorNumber\": \"Local 3\",\r\n  \"neighborhood\": \"La Paz\",\r\n  \"postalCode\": \"72160\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/businesses",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "businesses"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ChangeBusinesses",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"businessName\": \"Abarrotes La Esperanza\",\r\n  \"legalName\": \"Comercializadora La Esperanza S.A. de C.V.\",\r\n  \"typeOfBusiness\": \"Grocery Store\",\r\n  \"phoneNumber\": \"2224567890\",\r\n  \"mail\": \"contacto@laesperanza.example.com\",\r\n  \"street\": \"Avenida Juarez\",\r\n  \"exteriorNumber\": \"245\",\r\n  \"interiorNumber\": \"Local 3\",\r\n  \"neighborhood\": \"La Paz\",\r\n  \"postalCode\": \"72160\",\r\n  \"municipality\": \"Oaxaca\",\r\n  \"state\": \"DF\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/businesses/5",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "businesses",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Donations",
+      "item": [
+        {
+          "name": "AllDonations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Carlos\",\r\n  \"lastName\": \"Hernandez Lopez\",\r\n  \"phoneNumber\": \"2223456789\",\r\n  \"mail\": \"carlos.hernandez@example.com\",\r\n  \"familyMembers\": 4,\r\n  \"street\": \"Avenida Reforma\",\r\n  \"exteriorNumber\": \"125\",\r\n  \"interiorNumber\": \"2B\",\r\n  \"neighborhood\": \"Centro\",\r\n  \"postalCode\": \"72000\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/donations",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "donations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "IDDonations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Carlos\",\r\n  \"lastName\": \"Hernandez Lopez\",\r\n  \"phoneNumber\": \"2223456789\",\r\n  \"mail\": \"carlos.hernandez@example.com\",\r\n  \"familyMembers\": 4,\r\n  \"street\": \"Avenida Reforma\",\r\n  \"exteriorNumber\": \"125\",\r\n  \"interiorNumber\": \"2B\",\r\n  \"neighborhood\": \"Centro\",\r\n  \"postalCode\": \"72000\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/donations/1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "donations",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RmDonations",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Carlos\",\r\n  \"lastName\": \"Hernandez Lopez\",\r\n  \"phoneNumber\": \"2223456789\",\r\n  \"mail\": \"carlos.hernandez@example.com\",\r\n  \"familyMembers\": 4,\r\n  \"street\": \"Avenida Reforma\",\r\n  \"exteriorNumber\": \"125\",\r\n  \"interiorNumber\": \"2B\",\r\n  \"neighborhood\": \"Centro\",\r\n  \"postalCode\": \"72000\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/donations/4",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "donations",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AddDonations",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n \r\n  \"donationDate\": \"2026-11-12\",\r\n  \"totalQuantity\": 25.5,\r\n  \"status\": \"PENDING\",\r\n  \"observations\": \"Donation of fruits, vegetables, rice and beans. Products are in good condition and ready for delivery.\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/donations",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "donations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ChangeDonations",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"donationDate\": \"2026-11-12\",\r\n  \"totalQuantity\": 25.5,\r\n  \"status\": \"PENDING\",\r\n  \"observations\": \"Donation of fruits, vegetables, rice and beans. Products are in good condition and ready for delive.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/donations/4",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "donations",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Organizations",
+      "item": [
+        {
+          "name": "AllOrganizations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Carlos\",\r\n  \"lastName\": \"Hernandez Lopez\",\r\n  \"phoneNumber\": \"2223456789\",\r\n  \"mail\": \"carlos.hernandez@example.com\",\r\n  \"familyMembers\": 4,\r\n  \"street\": \"Avenida Reforma\",\r\n  \"exteriorNumber\": \"125\",\r\n  \"interiorNumber\": \"2B\",\r\n  \"neighborhood\": \"Centro\",\r\n  \"postalCode\": \"72000\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/organizations",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "organizations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "IDOrganizations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Carlos\",\r\n  \"lastName\": \"Hernandez Lopez\",\r\n  \"phoneNumber\": \"2223456789\",\r\n  \"mail\": \"carlos.hernandez@example.com\",\r\n  \"familyMembers\": 4,\r\n  \"street\": \"Avenida Reforma\",\r\n  \"exteriorNumber\": \"125\",\r\n  \"interiorNumber\": \"2B\",\r\n  \"neighborhood\": \"Centro\",\r\n  \"postalCode\": \"72000\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/organizations/1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "organizations",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RmOrganizations",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Carlos\",\r\n  \"lastName\": \"Hernandez Lopez\",\r\n  \"phoneNumber\": \"2223456789\",\r\n  \"mail\": \"carlos.hernandez@example.com\",\r\n  \"familyMembers\": 4,\r\n  \"street\": \"Avenida Reforma\",\r\n  \"exteriorNumber\": \"125\",\r\n  \"interiorNumber\": \"2B\",\r\n  \"neighborhood\": \"Centro\",\r\n  \"postalCode\": \"72000\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/organizations/5",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "organizations",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AddOrganizations",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nameORG\": \"Fundacion Manos Unidas\",\r\n  \"typeOfORG\": \"Non-Profit Organization\",\r\n  \"manager\": \"Laura Martinez Garcia\",\r\n  \"phoneNumber\": \"2225678901\",\r\n  \"mail\": \"contacto@manosunidas.example.com\",\r\n  \"street\": \"Calle 5 Sur\",\r\n  \"exteriorNumber\": \"318\",\r\n  \"interiorNumber\": \"N/A\",\r\n  \"neighborhood\": \"El Carmen\",\r\n  \"postalCode\": \"72530\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/organizations",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "organizations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ChangeOrganizations",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nameORG\": \"Fundacion Manos Unidas\",\r\n  \"typeOfORG\": \"Non-Profit Organization\",\r\n  \"manager\": \"Laura Martinez Garcia\",\r\n  \"phoneNumber\": \"2225678901\",\r\n  \"mail\": \"contacto@manosunidas.example.com\",\r\n  \"street\": \"Calle 5 Sur\",\r\n  \"exteriorNumber\": \"318\",\r\n  \"interiorNumber\": \"N/A\",\r\n  \"neighborhood\": \"El Carmen\",\r\n  \"postalCode\": \"7123123\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/organizations/4",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "organizations",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "AllUsers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Carlos\",\r\n  \"lastName\": \"Hernandez Lopez\",\r\n  \"phoneNumber\": \"2223456789\",\r\n  \"mail\": \"carlos.hernandez@example.com\",\r\n  \"familyMembers\": 4,\r\n  \"street\": \"Avenida Reforma\",\r\n  \"exteriorNumber\": \"125\",\r\n  \"interiorNumber\": \"2B\",\r\n  \"neighborhood\": \"Centro\",\r\n  \"postalCode\": \"72000\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/users",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "IDUsers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Carlos\",\r\n  \"lastName\": \"Hernandez Lopez\",\r\n  \"phoneNumber\": \"2223456789\",\r\n  \"mail\": \"carlos.hernandez@example.com\",\r\n  \"familyMembers\": 4,\r\n  \"street\": \"Avenida Reforma\",\r\n  \"exteriorNumber\": \"125\",\r\n  \"interiorNumber\": \"2B\",\r\n  \"neighborhood\": \"Centro\",\r\n  \"postalCode\": \"72000\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/users/1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "users",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RmUsers",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Carlos\",\r\n  \"lastName\": \"Hernandez Lopez\",\r\n  \"phoneNumber\": \"2223456789\",\r\n  \"mail\": \"carlos.hernandez@example.com\",\r\n  \"familyMembers\": 4,\r\n  \"street\": \"Avenida Reforma\",\r\n  \"exteriorNumber\": \"125\",\r\n  \"interiorNumber\": \"2B\",\r\n  \"neighborhood\": \"Centro\",\r\n  \"postalCode\": \"72000\",\r\n  \"municipality\": \"Puebla\",\r\n  \"state\": \"Puebla\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/users/1",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "users",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AddUsers",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"admin\",\r\n  \"mail\": \"admin@nutricomunidad.example.com\",\r\n  \"password\": \"Demo1234!Secure\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/users",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "ChangeUsers",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"gael\",\r\n  \"mail\": \"admin@nutricomunidad.example.com\",\r\n  \"password\": \"Demo1234!Secure\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/users/4",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "users",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "url",
+      "value": ""
+    }
+  ]
+}
