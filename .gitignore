@@ -35,4 +35,11 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Variables de entorno (credenciales reales: NUNCA subir) ###
 .env
+.env.*
+!.env.example
+
+### Postman: entornos locales con valores reales ###
+*.local.postman_environment.json
